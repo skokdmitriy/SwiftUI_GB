@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */; };
-		1BEEE8722885B6B500A76333 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE8712885B6B500A76333 /* ContentView.swift */; };
+		1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE8712885B6B500A76333 /* LoginScreen.swift */; };
 		1BEEE8742885B6BF00A76333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEEE8732885B6BF00A76333 /* Assets.xcassets */; };
 		1BEEE8772885B6BF00A76333 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEEE8762885B6BF00A76333 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		1BEEE86C2885B6B500A76333 /* SwiftUI_GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_GB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_GBApp.swift; sourceTree = "<group>"; };
-		1BEEE8712885B6B500A76333 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1BEEE8712885B6B500A76333 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		1BEEE8732885B6BF00A76333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BEEE8762885B6BF00A76333 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */,
-				1BEEE8712885B6B500A76333 /* ContentView.swift */,
+				1BEEE8712885B6B500A76333 /* LoginScreen.swift */,
 				1BEEE8732885B6BF00A76333 /* Assets.xcassets */,
 				1BEEE8752885B6BF00A76333 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEEE8722885B6B500A76333 /* ContentView.swift in Sources */,
+				1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */,
 				1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
