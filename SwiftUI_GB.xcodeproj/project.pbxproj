@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B93F0F82888604200E105A5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93F0F72888604200E105A5 /* Cell.swift */; };
 		1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */; };
 		1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE8712885B6B500A76333 /* LoginScreen.swift */; };
 		1BEEE8742885B6BF00A76333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEEE8732885B6BF00A76333 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B93F0F72888604200E105A5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		1BEEE86C2885B6B500A76333 /* SwiftUI_GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_GB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_GBApp.swift; sourceTree = "<group>"; };
 		1BEEE8712885B6B500A76333 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */,
 				1BEEE8712885B6B500A76333 /* LoginScreen.swift */,
+				1B93F0F72888604200E105A5 /* Cell.swift */,
 				1BEEE8732885B6BF00A76333 /* Assets.xcassets */,
 				1BEEE8752885B6BF00A76333 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */,
 				1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */,
+				1B93F0F82888604200E105A5 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
