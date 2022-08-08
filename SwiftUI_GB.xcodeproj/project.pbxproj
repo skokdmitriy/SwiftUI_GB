@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B93F0F82888604200E105A5 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93F0F72888604200E105A5 /* Cell.swift */; };
+		1B93F0F82888604200E105A5 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93F0F72888604200E105A5 /* FriendCell.swift */; };
+		1BA4BD62289EBD04000B442D /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA4BD61289EBD04000B442D /* GalleryView.swift */; };
+		1BA4BD8A289EDEC4000B442D /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA4BD89289EDEC3000B442D /* People.swift */; };
+		1BA4BD8C289EE3E0000B442D /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA4BD8B289EE3DF000B442D /* FriendsView.swift */; };
+		1BA4BD95289FF027000B442D /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA4BD94289FF026000B442D /* GroupView.swift */; };
+		1BA4BD98289FF0CF000B442D /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA4BD97289FF0CF000B442D /* GroupCell.swift */; };
 		1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */; };
-		1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE8712885B6B500A76333 /* LoginScreen.swift */; };
+		1BEEE8722885B6B500A76333 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEE8712885B6B500A76333 /* LoginView.swift */; };
 		1BEEE8742885B6BF00A76333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEEE8732885B6BF00A76333 /* Assets.xcassets */; };
 		1BEEE8772885B6BF00A76333 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEEE8762885B6BF00A76333 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B93F0F72888604200E105A5 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		1B93F0F72888604200E105A5 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		1BA4BD61289EBD04000B442D /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		1BA4BD89289EDEC3000B442D /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		1BA4BD8B289EE3DF000B442D /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		1BA4BD94289FF026000B442D /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		1BA4BD97289FF0CF000B442D /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		1BEEE86C2885B6B500A76333 /* SwiftUI_GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_GB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_GBApp.swift; sourceTree = "<group>"; };
-		1BEEE8712885B6B500A76333 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		1BEEE8712885B6B500A76333 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1BEEE8732885B6BF00A76333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BEEE8762885B6BF00A76333 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,6 +44,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BA4BD8D289EEC66000B442D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BA4BD89289EDEC3000B442D /* People.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1BA4BD8E289EECA0000B442D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BA4BD8F289EECC3000B442D /* Friend */,
+				1BA4BD96289FF0AE000B442D /* Group */,
+				1BEEE8712885B6B500A76333 /* LoginView.swift */,
+				1BA4BD61289EBD04000B442D /* GalleryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1BA4BD8F289EECC3000B442D /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				1BA4BD8B289EE3DF000B442D /* FriendsView.swift */,
+				1B93F0F72888604200E105A5 /* FriendCell.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		1BA4BD96289FF0AE000B442D /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				1BA4BD94289FF026000B442D /* GroupView.swift */,
+				1BA4BD97289FF0CF000B442D /* GroupCell.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
 		1BEEE8632885B6B500A76333 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				1BEEE86F2885B6B500A76333 /* SwiftUI_GBApp.swift */,
-				1BEEE8712885B6B500A76333 /* LoginScreen.swift */,
-				1B93F0F72888604200E105A5 /* Cell.swift */,
+				1BA4BD8D289EEC66000B442D /* Model */,
+				1BA4BD8E289EECA0000B442D /* View */,
 				1BEEE8732885B6BF00A76333 /* Assets.xcassets */,
 				1BEEE8752885B6BF00A76333 /* Preview Content */,
 			);
@@ -140,9 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEEE8722885B6B500A76333 /* LoginScreen.swift in Sources */,
+				1BA4BD8C289EE3E0000B442D /* FriendsView.swift in Sources */,
+				1BEEE8722885B6B500A76333 /* LoginView.swift in Sources */,
+				1BA4BD95289FF027000B442D /* GroupView.swift in Sources */,
 				1BEEE8702885B6B500A76333 /* SwiftUI_GBApp.swift in Sources */,
-				1B93F0F82888604200E105A5 /* Cell.swift in Sources */,
+				1B93F0F82888604200E105A5 /* FriendCell.swift in Sources */,
+				1BA4BD62289EBD04000B442D /* GalleryView.swift in Sources */,
+				1BA4BD8A289EDEC4000B442D /* People.swift in Sources */,
+				1BA4BD98289FF0CF000B442D /* GroupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
