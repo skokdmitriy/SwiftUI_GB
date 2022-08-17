@@ -7,20 +7,17 @@
 
 import SwiftUI
 
-struct Cell: View {
+struct FriendCell: View {
+    let item: People
+    
     var body: some View {
-        ScrollView {
-            CustomCell(image: "person.circle", title: "Stark")
-            CustomCell(image: "person.circle", title: "Hawk")
-            CustomCell(image: "person.circle", title: "Montana")
-            CustomCell(image: "person.circle", title: "Parker")
-        }
+        CustomCell(image: item.image, title: item.name)
     }
 }
 
 struct Cell_Previews: PreviewProvider {
     static var previews: some View {
-        Cell()
+        FriendCell(item: People.init(name: "Hawk", image: "Hawk"))
     }
 }
 
@@ -30,13 +27,23 @@ struct CustomCell: View {
     
     var body: some View {
         HStack() {
-            Image(systemName: image)
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 50, height: 50)
+                .clipped()
+                .clipShape(Circle())
+                .overlay{
+                    Circle().stroke(.cyan, lineWidth: 2)
+                }
+                .shadow(radius: 4)
+            
             Text(title)
                 .italic()
             Spacer()
         }
         .padding()
-        .modifier(CellModifier(cornerRadius: 20, shadowColor: .gray, shadowRadius: 3))
+        .cellStyle(cornerRadius: 20, shadowColor: .gray, shadowRadius: 3)
     }
 }
 
@@ -50,6 +57,12 @@ struct CellModifier: ViewModifier {
             .background(RoundedRectangle(cornerRadius: cornerRadius)
                             .fill(Color.white)
                             .shadow(color: shadowColor, radius: shadowRadius, x: 3, y: 3))
+    }
+}
+
+extension View {
+    func cellStyle (cornerRadius: CGFloat, shadowColor: Color, shadowRadius: CGFloat) -> some View {
+        self.modifier(CellModifier(cornerRadius: cornerRadius, shadowColor: shadowColor, shadowRadius: shadowRadius))
     }
 }
 

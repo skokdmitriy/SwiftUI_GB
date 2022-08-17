@@ -8,10 +8,12 @@
 import SwiftUI
 import Combine
 
-struct LoginScreen: View {
+struct LoginView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo: Bool = true
+    @State private var showIncorrectCredentialsWarning = false
+    @State var showStartView: Bool = false
     
     private let keyboardIsOnPublisher = Publishers.Merge(
         NotificationCenter.default.publisher(
@@ -22,13 +24,22 @@ struct LoginScreen: View {
             .map { _ in false}
     )
         .removeDuplicates()
-        .throttle(for: 0.1, scheduler: DispatchQueue.main, latest: true)
+        .throttle(for: 0.1,
+                    scheduler: DispatchQueue.main,
+                    latest: true
+        )
     
     var body: some View {
         ZStack {
+            
+            if showStartView {
+                FriendsView()
+            } else {
+            
             GeometryReader { geometry in
                 imageBackground
-                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                    .frame(maxWidth: geometry.size.width,
+                           maxHeight: geometry.size.height)
             }
             
             ScrollView(showsIndicators: false) {
@@ -39,27 +50,14 @@ struct LoginScreen: View {
                     }
                     
                     VStack {
-                        HStack {
-                            Text("Login")
-                                .foregroundColor(.white)
-                            Spacer()
-                            TextField("Enter email", text: $login)
-                                .modifier(ConfigTextField())
-                        }
-                        
-                        HStack {
-                            Text("Password")
-                                .foregroundColor(.white)
-                            Spacer()
-                            SecureField("Enter password", text: $password)
-                                .modifier(ConfigTextField())
-                        }
-                    }.frame(maxWidth: 300)
+                        areaLogin
+                        areaPassword
+                    }
+                    .frame(maxWidth: 300)
                         .padding(.top, 50)
                     
                     buttonLogIn
                         .offset(y: 20)
-                    
                 }
             }
             .onReceive(keyboardIsOnPublisher) { isKeyboardOn in
@@ -68,13 +66,29 @@ struct LoginScreen: View {
                 }
             }
         }
+        }
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
+        .alert(isPresented: $showIncorrectCredentialsWarning,
+               content: { Alert(title: Text("Error"),
+                                message: Text("Incorrect login or password"),
+                                dismissButton: .cancel())})
     }
+    
+    private func verifyLoginData() {
+        if login == "1" && password == "1" {
+            
+        } else {
+            showIncorrectCredentialsWarning = true
+        }
+        password = ""
+    }
+    
 }
 
-private extension LoginScreen {
+
+private extension LoginView {
     
     var imageBackground: some View {
         Image("teahub")
@@ -91,7 +105,10 @@ private extension LoginScreen {
     }
     
     var buttonLogIn: some View {
-        Button(action: { print("Hello") }) {
+        Button {
+            verifyLoginData()
+            showStartView = true
+        } label: {
             Text("Log in")
         }
         .buttonStyle(.bordered)
@@ -99,6 +116,27 @@ private extension LoginScreen {
         .cornerRadius(10)
         .disabled(login.isEmpty || password.isEmpty)
     }
+    
+    var areaLogin: some View {
+        HStack {
+            Text("Login")
+                .foregroundColor(.white)
+            Spacer()
+            TextField("Enter email", text: $login)
+                .modifier(ConfigTextField())
+        }
+    }
+    
+    var areaPassword: some View {
+        HStack {
+            Text("Password")
+                .foregroundColor(.white)
+            Spacer()
+            SecureField("Enter password", text: $password)
+                .modifier(ConfigTextField())
+        }
+    }
+    
 }
 
 struct ConfigTextField: ViewModifier {
@@ -117,8 +155,6 @@ extension UIApplication {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            LoginScreen()
-        }
+            LoginView()
     }
 }
