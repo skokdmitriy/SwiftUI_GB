@@ -25,51 +25,52 @@ struct LoginView: View {
     )
         .removeDuplicates()
         .throttle(for: 0.1,
-                    scheduler: DispatchQueue.main,
-                    latest: true
+                     scheduler: DispatchQueue.main,
+                     latest: true
         )
     
     var body: some View {
         ZStack {
             
             if showStartView {
-                FriendsView()
             } else {
-            
-            GeometryReader { geometry in
-                imageBackground
-                    .frame(maxWidth: geometry.size.width,
-                           maxHeight: geometry.size.height)
-            }
-            
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    if shouldShowLogo {
-                        logo
-                            .padding(.top, 32)
-                    }
-                    
+                
+                GeometryReader { geometry in
+                    imageBackground
+                        .frame(maxWidth: geometry.size.width,
+                               maxHeight: geometry.size.height)
+                }
+                
+                ScrollView(showsIndicators: false) {
                     VStack {
-                        areaLogin
-                        areaPassword
-                    }
-                    .frame(maxWidth: 300)
+                        if shouldShowLogo {
+                            logo
+                                .padding(.top, 32)
+                        }
+                        
+                        VStack {
+                            areaLogin
+                            areaPassword
+                        }
+                        .frame(maxWidth: 300)
                         .padding(.top, 50)
-                    
-                    buttonLogIn
-                        .offset(y: 20)
+                        
+                        buttonLogIn
+                            .offset(y: 20)
+                    }
+                }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
+                .onReceive(keyboardIsOnPublisher) { isKeyboardOn in
+                    withAnimation(Animation.easeInOut(duration: 0.5)) {
+                        self.shouldShowLogo = !isKeyboardOn
+                        
+                    }
                 }
             }
-            .onReceive(keyboardIsOnPublisher) { isKeyboardOn in
-                withAnimation(Animation.easeInOut(duration: 0.5)) {
-                    self.shouldShowLogo = !isKeyboardOn
-                }
-            }
         }
-        }
-        .onTapGesture {
-            UIApplication.shared.endEditing()
-        }
+        
         .alert(isPresented: $showIncorrectCredentialsWarning,
                content: { Alert(title: Text("Error"),
                                 message: Text("Incorrect login or password"),
@@ -84,9 +85,7 @@ struct LoginView: View {
         }
         password = ""
     }
-    
 }
-
 
 private extension LoginView {
     
@@ -155,6 +154,6 @@ extension UIApplication {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-            LoginView()
+        LoginView()
     }
 }
