@@ -28,10 +28,15 @@ struct FriendsView_Previews: PreviewProvider {
 
 private extension FriendsView {
     var listFriends: some View {
-        List(viewModel.friends.sorted(by: { $0.lastName < $1.lastName})) { friend in
-            FriendCell(item: friend)
+        List(viewModel.friends.sorted(by: { $0.lastName < $1.lastName })) { friend in
+            
+            NavigationLink(destination: GalleryView(viewModel: PhotoViewModel(apiPhoto: PhotoApi(), friends: friend))) {
+                FriendCell(item: friend)
+            }
         }
-        .onAppear(perform: viewModel.fetchFriends)
+        .onAppear {
+            viewModel.fetchFriends()
+        }
 //        .navigationTitle(Text("Friends"))
     }
 }

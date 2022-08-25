@@ -27,13 +27,14 @@ fileprivate enum TypeRequests: String {
 }
 
 class PhotoApi: PhotoService {
+    
+    @ObservedObject var tokenSession = Session.shared
+
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         return session
     }()
-    
-    @ObservedObject var tokenSession = Session.shared
     
     private let scheme = "https"
     private let host = "api.vk.com"
@@ -50,7 +51,7 @@ class PhotoApi: PhotoService {
                                method: .photosGetAll,
                                httpMethod: .get,
                                params: params)
-        print(url)
+        print("FOTO++++++++++ \(url)")
         let task = session.dataTask(with: url) { data, response, error in
 //            if let error = error {
 //                return completion(.failure(.requestError(error)))
