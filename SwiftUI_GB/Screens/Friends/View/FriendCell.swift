@@ -6,28 +6,27 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct FriendCell: View {
-    let item: People
+    
+    let item: FriendModel
     
     var body: some View {
-        CustomCell(image: item.image, title: item.name)
+        CustomCell(image: item.photo50,
+                   lastName: item.lastName,
+                   firstName: item.firstName)
     }
 }
 
-struct Cell_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendCell(item: People.init(name: "Hawk", image: "Hawk"))
-    }
-}
-
-struct CustomCell: View {
+fileprivate struct CustomCell: View {
     let image: String
-    let title: String
+    let lastName: String
+    let firstName: String
     
     var body: some View {
         HStack() {
-            Image(image)
+            WebImage(url: URL(string: image))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 50, height: 50)
@@ -38,7 +37,7 @@ struct CustomCell: View {
                 }
                 .shadow(radius: 4)
             
-            Text(title)
+            Text("\(lastName) \(firstName)")
                 .italic()
             Spacer()
         }
@@ -66,3 +65,8 @@ extension View {
     }
 }
 
+//struct Cell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendCell()
+//    }
+//}
